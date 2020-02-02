@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using TravelRepublic.FlightCodingTest;
+using TravelRepublic.OutputWriters;
 
 namespace TravelRepublic
 {
@@ -6,7 +9,12 @@ namespace TravelRepublic
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var flightBuilder = new FlightBuilder();
+            IList<Flight> flights = flightBuilder.GetFlights();
+
+
+            var outputWriter = new ConsoleOutputWriter(new ConsoleWrapper());
+            outputWriter.Write(new FlightBuilder().GetFlights());
         }
     }
 }
